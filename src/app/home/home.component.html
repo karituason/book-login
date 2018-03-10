@@ -1,0 +1,26 @@
+<div class = "container">
+    <div class = "panel-heading">
+        <h1>Hello today is {{date | date: 'dd/MM/yyyy'}}</h1>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-mid-2"><h3>Books</h3></div>        
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf="books && books.length">
+                <thead>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let book of books">
+                        <td>{{book.name}}</td>
+                        <td>{{book.author}}</td>
+                        <td>{{book.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

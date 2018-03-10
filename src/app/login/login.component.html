@@ -1,0 +1,38 @@
+<div class = "container">
+    <div class = "panel">
+        <h1>Login</h1>
+    </div>
+    <div class="panel-body">
+        <form #form="ngForm" (submit)="login(form)">
+            <div class="form-group" [class.has-error]="username.invalid">
+                <label for="username" class="control-label">Username:</label>
+                <input type="text" placeholder="username"
+                    [(ngModel)]="user.username"
+                    required
+                    #username = "ngModel"
+                    name="username" id="username"/>
+                    <div class="alert alert-danger" *ngIf="(username.dirty||username.touched)&&username.invalid">
+                            Username is required.
+                    </div>
+            </div>
+            <div class="form-group" [class.has-error]="password.invalid">
+                <label for="password" class="control-label">Password:</label>
+                <input type="password" placeholder="password"
+                    [(ngModel)]="user.password"
+                    required
+                    #password = "ngModel"
+                    name="password" id="password"/>
+                    <div class="alert alert-danger" *ngIf="(password.dirty||password.touched)&&password.invalid">
+                            Password is required.
+                    </div>
+            </div>
+            <div class="alert alert-danger" *ngIf="misMatch">
+                    Username and password invalid. (username = "user"; password = "password")
+            </div>
+            <div class="alert alert-danger" *ngIf="form.invalid && logTry">
+                    Enter username and password.
+            </div>
+            <button class="btn btn-success" type="submit">Login</button>
+        </form>
+    </div>
+</div>
